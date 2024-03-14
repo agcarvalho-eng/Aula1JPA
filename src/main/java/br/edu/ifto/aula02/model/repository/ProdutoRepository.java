@@ -6,7 +6,18 @@ import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;
 import org.springframework.stereotype.Repository;
 import java.util.List;
-
+/*
+    * @Repository - definir um papel específico para classes que acessam
+    * e manipulam dados em uma aplicação.
+    *
+    * @PersistenceContext - é usada para especificar o EntityManager que
+    * precisa ser injetado como dependência.
+    *
+    * EntityManager - é um serviço responsável por gerenciar as entidades.
+    * Por meio dele é possível gerenciar o ciclo de vida das entidades, a
+    * operação de sincronização com a base de dados (inserir, atualizar ou
+    * remover), a consulta de entidades, entre outras operações.
+ */
 @Repository
 public class ProdutoRepository {
     @PersistenceContext

@@ -11,7 +11,24 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-
+/*
+    * @Transactional - anotação específica para trabalhar com transações,
+    * seguindo a mesma ideia de transação no banco de dados.
+    *
+    * @Controller - criar um controller, você deve anotar uma classe
+    * com @Controller ou @RestController , dependendo se deseja retornar
+    * uma visualização HTML ou dados em formato JSON.
+    *
+    * @RequestMapping - anotação de nível de classe que define o prefixo
+    * de URL para todas as rotas de um controller. @GetMapping define uma
+    * rota que responde a requisições HTTP GET. @PostMapping define uma
+    * rota que responde a requisições HTTP POST.
+    *
+    * @Autowired - fornece controle sobre onde e como a ligação entre os
+    * beans deve ser realizada. Pode ser usado para em métodos setter,
+    * no construtor, em uma propriedade ou métodos com nomes arbitrários
+    * e/ou vários argumentos.
+ */
 @Transactional
 @Controller
 @RequestMapping("produto")
@@ -47,7 +64,7 @@ public class ProdutoController {
     @GetMapping("/remove/{id}")
     public ModelAndView remove(@PathVariable("id") Long id){
         repository.remove(id);
-        return new ModelAndView("redirect:/produto/list"); //Aponta o caminho da view no projeto em /templates/list.
+        return new ModelAndView("redirect:/produto/list"); //Aponta o caminho da view no projeto em /templates/produto.
     }
     /**
      * @param id
@@ -57,7 +74,7 @@ public class ProdutoController {
     @GetMapping("/edit/{id}")
     public ModelAndView edit(@PathVariable("id") Long id, ModelMap model) {
         model.addAttribute("produto", repository.produto(id));
-        return new ModelAndView("/produto/form", model); // Página onde está a estrutura html a ser mostrada (templates/form).
+        return new ModelAndView("/produto/form", model); // Aponta o caminho da view no projeto em /templates/produto).
     }
 
     @PostMapping("/update")

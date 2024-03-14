@@ -4,15 +4,16 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-
 import java.io.Serializable;
 
 /*
-Programa para CRUD completo com entidade Produto.
- */
+    * Programa para CRUD completo com entidade Produto utilizando JPA e ORM.
+    * (@Entity) - Informando que esta classe representa uma entidade e que seus objetos devem ser persistidos no banco de dados.
+*/
 @Entity
 public class Produto implements Serializable {
 
+    //Informando que o campo mapeado (no caso o id) será gerado automaticamente pelo banco de dados.
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private Long id;
